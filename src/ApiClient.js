@@ -1,16 +1,17 @@
 import axios from 'axios';
 
 class ApiClient {
-  constructor(url) {
-    this.url = url;
+  constructor(conf) {
+    this.url = conf.url;
+    this.appID = conf.appID;
   }
 
-  get(params = {}, module = 'latest') {
-    console.log(`Requesting... ${this.url}`);
+  get(params = { params: { app_id: this.appID } }, module = 'latest.json') {
+    console.info(`Requesting... ${this.url}/${module}?app_id=${params.params.app_id}`);
     return axios.get(`${this.url}/${module}`, params)
       .then(res => res.data)
       .catch((error) => {
-        console.log(error);
+        console.error(error);
       });
   }
 }

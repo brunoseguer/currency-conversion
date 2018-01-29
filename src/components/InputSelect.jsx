@@ -1,9 +1,8 @@
 import React from 'react';
 
-const InputSelect = ({ options, handleInputSelect }) => (
-  <select onChange={handleInputSelect} >
-    {options.map(option =>
-      <option key={option} value={option}>{option}</option>)}
+const InputSelect = ({ currencyList, handleInputSelect, name, value }) => (
+  <select onChange={handleInputSelect} name={name} value={value} >
+    {currencyList.map(option => <option key={option} value={option}>{option}</option>)}
   </select>
 );
 
