@@ -11,7 +11,7 @@ class Converter extends React.Component {
       currencyList: [],
       rateFrom: 'USD',
       rateTo: 'ARS',
-      amount: 0,
+      amount: '',
     };
     this.handleInputSelect = this.handleInputSelect.bind(this);
     this.handleChange = this.handleChange.bind(this);
@@ -39,8 +39,10 @@ class Converter extends React.Component {
   }
 
   converter() {
-    return this.state.amount * (this.state.rates[this.state.rateTo] *
-      (1 / this.state.rates[this.state.rateFrom]));
+    return this.state.amount && (this.state.amount
+      * (this.state.rates[this.state.rateTo]
+      * (1 / this.state.rates[this.state.rateFrom]))
+    );
   }
 
   toggleValues() {
@@ -52,23 +54,28 @@ class Converter extends React.Component {
 
   render() {
     return this.state.show && (
-      <div>
-        <h1>Currency conversion</h1>
-        <InputSelect
-          name="rateFrom"
-          currencyList={this.state.currencyList}
-          handleInputSelect={this.handleInputSelect}
-          value={this.state.rateFrom}
-        />
-        <InputText handleChange={this.handleChange} text={this.state.amount} />
-        <InputSelect
-          name="rateTo"
-          currencyList={this.state.currencyList}
-          handleInputSelect={this.handleInputSelect}
-          value={this.state.rateTo}
-        />
-        <InputText text={this.converter()} readOnly="true" />
-        <button type="button" onClick={this.toggleValues}>Reverse Currencies</button>
+      <div className="input-group">
+        <div className="form-row">
+          <InputSelect
+            name="rateFrom"
+            currencyList={this.state.currencyList}
+            handleInputSelect={this.handleInputSelect}
+            value={this.state.rateFrom}
+          />
+          <InputText handleChange={this.handleChange} text={this.state.amount} />
+        </div>
+        <div className="form-row">
+          <InputSelect
+            name="rateTo"
+            currencyList={this.state.currencyList}
+            handleInputSelect={this.handleInputSelect}
+            value={this.state.rateTo}
+          />
+          <InputText text={this.converter()} readOnly="true" />
+        </div>
+        <div className="form-row">
+          <button type="button" onClick={this.toggleValues}>Reverse Currencies</button>
+        </div>
       </div>
     );
   }

@@ -7,7 +7,7 @@ import conf from './config/default'
 const client = new ApiClient(conf);
 
 const App = () => (
-  <div className="container">
+  <div>
     <Converter client={client} />
   </div>
 );

@@ -7,7 +7,6 @@ class ApiClient {
   }
 
   get(params = { params: { app_id: this.appID } }, module = 'latest.json') {
-    console.info(`Requesting... ${this.url}/${module}?app_id=${params.params.app_id}`);
     return axios.get(`${this.url}/${module}`, params)
       .then(res => res.data)
       .catch((error) => {

@@ -1,0 +1,17 @@
+input.currency {
+    text-align: right;
+    padding-right: 15px;
+}
+
+.input-group {
+  justify-content: center;
+  display: flex;
+  float: none;
+  flex-direction: column;
+  margin-top: 100px;
+}
+
+.form-row {
+    padding: 10px;
+    justify-content: center;
+}
