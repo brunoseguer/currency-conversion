@@ -1,4 +1,14 @@
 import React from 'react';
 import { render } from 'react-dom';
+import ApiClient from './ApiClient';
+import Layout from './containers/Layout.jsx';
 
-render(<h1>Currency conversion project setup </h1>, document.getElementById('app'));
+const client = new ApiClient('https://api.fixer.io');
+
+const App = () => (
+  <div className="container-fluid">
+    <Layout client={client} />
+  </div>
+);
+
+render(<App />, document.getElementById('app'));
