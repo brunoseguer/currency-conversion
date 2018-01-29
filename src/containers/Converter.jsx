@@ -15,6 +15,7 @@ class Converter extends React.Component {
     };
     this.handleInputSelect = this.handleInputSelect.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    this.toggleValues = this.toggleValues.bind(this);
   }
 
   componentWillMount() {
@@ -42,6 +43,13 @@ class Converter extends React.Component {
       (1 / this.state.rates[this.state.rateFrom]));
   }
 
+  toggleValues() {
+    this.setState(prevState => ({
+      rateTo: prevState.rateFrom,
+      rateFrom: prevState.rateTo,
+    }));
+  }
+
   render() {
     return this.state.show && (
       <div>
@@ -60,6 +68,7 @@ class Converter extends React.Component {
           value={this.state.rateTo}
         />
         <InputText text={this.converter()} readOnly="true" />
+        <button type="button" onClick={this.toggleValues}>Reverse Currencies</button>
       </div>
     );
   }
