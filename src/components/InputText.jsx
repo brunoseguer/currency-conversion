@@ -1,12 +1,15 @@
 import React from 'react';
+import NumberFormat from 'react-number-format';
 
 const InputText = ({ handleChange, text, readOnly }) => (
-  <input
-    className="currency"
-    type="number"
-    step="0.01"
-    onChange={handleChange}
+  <NumberFormat
+    thousandSeparator={true}
+    thousandSeparator={','}
+    decimalSeparator={'.'}
+    decimalScale={4}
+    onValueChange={handleChange}
     value={text}
+    isNumericString={false}
     readOnly={readOnly}
   />
 );

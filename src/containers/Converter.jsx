@@ -35,13 +35,21 @@ class Converter extends React.Component {
   }
 
   handleChange(e) {
-    this.setState({ amount: e.target.value });
+    this.setState({ amount: e.value });
   }
 
   converter() {
-    return this.state.amount && (this.state.amount
-      * (this.state.rates[this.state.rateTo]
-      * (1 / this.state.rates[this.state.rateFrom]))
+    // const amount = parseFloat(this.state.amount);
+    // console.log(amount);
+    const {
+      amount,
+      rateTo,
+      rateFrom,
+      rates,
+    } = this.state;
+
+    return amount && (amount * (rates[rateTo]
+      * (1 / rates[rateFrom]))
     );
   }
 
