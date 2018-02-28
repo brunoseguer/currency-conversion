@@ -1,8 +1,9 @@
 import React from 'react';
 import NumberFormat from 'react-number-format';
 
-const InputText = ({ handleChange, text, readOnly }) => (
+const InputText = ({ handleChange, text, readOnly, className }) => (
   <NumberFormat
+    className={className}
     thousandSeparator={true}
     thousandSeparator={','}
     decimalSeparator={'.'}

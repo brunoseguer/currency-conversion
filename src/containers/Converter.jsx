@@ -39,8 +39,6 @@ class Converter extends React.Component {
   }
 
   converter() {
-    // const amount = parseFloat(this.state.amount);
-    // console.log(amount);
     const {
       amount,
       rateTo,
@@ -62,27 +60,45 @@ class Converter extends React.Component {
 
   render() {
     return this.state.show && (
-      <div className="input-group">
-        <div className="form-row">
-          <InputSelect
-            name="rateFrom"
-            currencyList={this.state.currencyList}
-            handleInputSelect={this.handleInputSelect}
-            value={this.state.rateFrom}
-          />
-          <InputText handleChange={this.handleChange} text={this.state.amount} />
+      <div className="container py-5 mx-auto">
+        <div className="row justify-content-md-center my-4">
+          <div className="col-sm-2">
+            <InputSelect
+              className="form-control"
+              name="rateFrom"
+              currencyList={this.state.currencyList}
+              handleInputSelect={this.handleInputSelect}
+              value={this.state.rateFrom}
+            />
+          </div>
+          <div className="col-sm-4">
+            <InputText className="form-control" handleChange={this.handleChange} text={this.state.amount} />
+          </div>
         </div>
-        <div className="form-row">
-          <InputSelect
-            name="rateTo"
-            currencyList={this.state.currencyList}
-            handleInputSelect={this.handleInputSelect}
-            value={this.state.rateTo}
-          />
-          <InputText text={this.converter()} readOnly="true" />
+        <div className="row justify-content-md-center my-4">
+          <div className="col-sm-2">
+            <InputSelect
+              className="form-control"
+              name="rateTo"
+              currencyList={this.state.currencyList}
+              handleInputSelect={this.handleInputSelect}
+              value={this.state.rateTo}
+            />
+          </div>
+          <div className="col-sm-4">
+            <InputText className="form-control" text={this.converter()} readOnly="true" />
+          </div>
         </div>
-        <div className="form-row">
-          <button type="button" onClick={this.toggleValues}>Reverse Currencies</button>
+        <div className="row justify-content-md-center my-4">
+          <div className="col-sm-2">
+            <button
+              className="btn btn-primary btn-block"
+              type="button"
+              onClick={this.toggleValues}
+            >
+              Reverse Currencies
+            </button>
+          </div>
         </div>
       </div>
     );
