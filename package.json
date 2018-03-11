@@ -6,7 +6,7 @@
   "scripts": {
     "build": "./node_modules/webpack/bin/webpack.js -p",
     "test": "mocha",
-    "start": "node node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot --colors --content-base ./public"
+    "start": "node node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot --host 0.0.0.0 --colors --content-base ./public"
   },
   "repository": {
     "type": "git",
